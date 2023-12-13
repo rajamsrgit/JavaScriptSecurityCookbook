@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Protection Example</title>
+</head>
+
+<body>
+
+    <!-- Form with anti-CSRF token -->
+    <form id="myForm">
+        <!-- Input for the anti-CSRF token -->
+        <input type="hidden" id="csrfToken" name="csrfToken" value="">
+
+        <!-- Other form fields -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <!-- Submit button -->
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        // Function to generate a random anti-CSRF token
+        function generateCSRFToken() {
+            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+
+        // Function to set the anti-CSRF token value in the form
+        function setCSRFToken() {
+            var csrfTokenInput = document.getElementById('csrfToken');
+            csrfTokenInput.value = generateCSRFToken();
+        }
+
+        // Function to submit the form with anti-CSRF protection
+        function submitForm() {
+            // Set the anti-CSRF token before submitting the form
+            setCSRFToken();
+
+            // Get the form element
+            var form = document.getElementById('myForm');
+
+            // Submit the form
+            form.submit();
+        }
+
+        // Set the initial anti-CSRF token when the page loads
+        setCSRFToken();
+    </script>
+
+</body>
+
+</html>

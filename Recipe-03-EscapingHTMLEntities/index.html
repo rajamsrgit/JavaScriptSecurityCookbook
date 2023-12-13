@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Example</title>
+</head>
+
+<body>
+
+    <!-- Placeholder element for dynamic content -->
+    <div id="dynamicContentContainer"></div>
+
+    <script>
+        // Function to escape HTML entities
+        function escapeHtml(text) {
+            var div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Example dynamic content
+        var userInput = "<script>alert('XSS attack!');</script>";
+
+    // Escape HTML entities before injecting dynamic content
+    var escapedContent = escapeHtml(userInput);
+
+    // Inject the escaped content into the page
+    var dynamicContentContainer = document.getElementById('dynamicContentContainer');
+    dynamicContentContainer.innerHTML = "<p>" + escapedContent + "</p>";
+    </script>
+
+</body>
+
+</html>
+
+<!-- In this example:
+
+The escapeHtml function creates a temporary div element, sets its textContent property to the input text, and then retrieves the HTML-escaped content from the innerHTML property of the div.
+
+The userInput variable represents the dynamic content that needs to be injected.
+
+The escapedContent variable stores the HTML-escaped version of the userInput.
+
+The dynamicContentContainer element is a placeholder where the dynamic content will be injected.
+
+The innerHTML property is used to inject the escaped content into the page.
+ -->

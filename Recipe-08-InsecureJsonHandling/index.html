@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure JSON Handling</title>
+</head>
+<body>
+
+    <script>
+        // Function to safely parse JSON
+        function safeJsonParse(jsonString) {
+            try {
+                // Attempt to parse the JSON string
+                const parsedData = JSON.parse(jsonString);
+
+                // Check the structure of the parsed data if needed
+                if (isValidJsonStructure(parsedData)) {
+                    return parsedData;
+                } else {
+                    throw new Error('Invalid JSON structure');
+                }
+            } catch (error) {
+                console.error('Error parsing JSON:', error.message);
+                return null;
+            }
+        }
+
+        // Function to validate JSON structure (customize based on your requirements)
+        function isValidJsonStructure(data) {
+            // Add your validation logic here
+            // For example, check if the required properties are present
+            return (data && data.hasOwnProperty('name') && data.hasOwnProperty('age'));
+        }
+
+        // Example of receiving JSON data from an untrusted source (e.g., user input)
+        const userInputJson = '{"name": "John", "age": 25, "role": "admin"}';
+
+        // Safely parse the JSON data
+        const parsedData = safeJsonParse(userInputJson);
+
+        // Use the parsed data (if valid)
+        if (parsedData) {
+            console.log('Parsed JSON data:', parsedData);
+        } else {
+            console.log('Invalid JSON data');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBAC Example</title>
+</head>
+<body>
+
+<script>
+  // User roles
+  const roles = {
+    ADMIN: 'admin',
+    USER: 'user',
+    GUEST: 'guest',
+  };
+
+  // Sample user data with assigned roles
+  const users = [
+    { username: 'admin1', role: roles.ADMIN },
+    { username: 'user1', role: roles.USER },
+    { username: 'guest1', role: roles.GUEST },
+  ];
+
+  // Function to check if a user has a specific role
+  function hasRole(user, role) {
+    return user.role === role;
+  }
+
+  // Example usage
+  const currentUser = users[0];
+
+  if (hasRole(currentUser, roles.ADMIN)) {
+    console.log('Admin has access to special features.');
+    // Add logic for admin access here
+  } else if (hasRole(currentUser, roles.USER)) {
+    console.log('User has access to regular features.');
+    // Add logic for user access here
+  } else {
+    console.log('Guest has limited access.');
+    // Add logic for guest access here
+  }
+</script>
+
+</body>
+</html>

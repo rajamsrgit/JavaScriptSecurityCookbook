@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Webpage</title>
+    <script>
+        // Define the expected public key hash
+        const expectedPublicKeyHash = "YOUR_PUBLIC_KEY_HASH";
+
+        // Function to verify the certificate against the expected public key hash
+        function verifyCertificate() {
+            const crypto = window.crypto || window.msCrypto; // For cross-browser compatibility
+
+            crypto.subtle.digest('SHA-256', new TextEncoder().encode(expectedPublicKey))
+                .then(hashBuffer => {
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+                    // Compare the calculated hash with the expected hash
+                    if (hashHex === expectedPublicKeyHash) {
+                        console.log("Certificate is valid. Connection secure.");
+                    } else {
+                        console.error("Certificate verification failed. Potential MitM attack!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error calculating certificate hash:", error);
+                });
+        }
+
+        // Call the certificate verification function when the page loads
+        window.addEventListener('load', verifyCertificate);
+    </script>
+</head>
+<body>
+    <h1>Secure Webpage</h1>
+    <!-- Your webpage content goes here -->
+</body>
+</html>

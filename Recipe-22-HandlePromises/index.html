@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Promise Handling</title>
+</head>
+
+<body>
+
+    <script>
+        // Function that returns a promise
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                // Simulating an asynchronous operation
+                setTimeout(() => {
+                    const success = true; // Change this to test different scenarios
+                    if (success) {
+                        resolve("Data successfully fetched!");
+                    } else {
+                        reject(new Error("Failed to fetch data."));
+                    }
+                }, 1000);
+            });
+        }
+
+        // Function to handle promises securely
+        function handlePromise() {
+            fetchData()
+                .then((data) => {
+                    // Handle successful response
+                    console.log(data);
+                })
+                .catch((error) => {
+                    // Handle errors
+                    console.error(error.message);
+
+                    // You can also rethrow the error if needed
+                    // throw error;
+                })
+                .finally(() => {
+                    // This block will be executed regardless of success or failure
+                    console.log("Promise handling complete.");
+                });
+        }
+
+        // Call the function to handle the promise
+        handlePromise();
+    </script>
+
+</body>
+
+</html>

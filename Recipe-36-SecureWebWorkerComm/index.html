@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Web Worker Communication</title>
+</head>
+
+<body>
+    <script>
+        // Main thread script
+
+        const worker = new Worker('worker.js');
+
+        // Encrypt and send a message to the worker
+        const sendMessage = async (message) => {
+            const key = await crypto.subtle.generateKey(
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['encrypt', 'decrypt']
+            );
+
+            const encodedMessage = new TextEncoder().encode(message);
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+
+            const encryptedMessage = await crypto.subtle.encrypt(
+                { name: 'AES-GCM', iv },
+                key,
+                encodedMessage
+            );
+
+            worker.postMessage({
+                encryptedMessage,
+                iv,
+            }, [encryptedMessage]);
+        };
+
+        // Receive and decrypt messages from the worker
+        worker.onmessage = async (event) => {
+            const { encryptedMessage, iv } = event.data;
+            const key = await crypto.subtle.generateKey(
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['encrypt', 'decrypt']
+            );
+
+            const decryptedMessage = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv },
+                key,
+                encryptedMessage
+            );
+
+            const decodedMessage = new TextDecoder().decode(decryptedMessage);
+            console.log('Decrypted Message:', decodedMessage);
+        };
+
+        // Example usage
+        sendMessage('Hello from the main thread!');
+    </script>
+</body>
+
+</html>

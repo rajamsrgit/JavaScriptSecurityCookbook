@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Web Storage</title>
+    <!-- Include CryptoJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</head>
+
+<body>
+
+    <script>
+        // Encryption key (should be kept secure)
+        const encryptionKey = 'your_secret_encryption_key';
+
+        // Encryption function
+        function encrypt(text) {
+            return CryptoJS.AES.encrypt(text, encryptionKey).toString();
+        }
+
+        // Decryption function
+        function decrypt(text) {
+            const bytes = CryptoJS.AES.decrypt(text, encryptionKey);
+            return bytes.toString(CryptoJS.enc.Utf8);
+        }
+
+        // Example: Storing encrypted data in localStorage
+        const sensitiveData = 'ThisIsSensitiveData';
+        const encryptedData = encrypt(sensitiveData);
+        localStorage.setItem('encryptedData', encryptedData);
+
+        // Example: Retrieving and decrypting data from localStorage
+        const storedEncryptedData = localStorage.getItem('encryptedData');
+        if (storedEncryptedData) {
+            const decryptedData = decrypt(storedEncryptedData);
+            console.log('Decrypted Data:', decryptedData);
+        } else {
+            console.log('No data found.');
+        }
+    </script>
+
+</body>
+
+</html>

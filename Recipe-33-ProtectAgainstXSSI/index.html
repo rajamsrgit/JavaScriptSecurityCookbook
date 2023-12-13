@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSSI Protection Example</title>
+</head>
+
+<body>
+
+    <h1>XSSI Protection Example</h1>
+
+    <script>
+        async function loadExternalScript() {
+            try {
+                const response = await fetch('http://localhost:3000/api/external-script', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        // Add your external script URL or content here
+                        script: 'https://example.com/external-script.js',
+                    }),
+                });
+
+                const data = await response.json();
+
+                // Execute the sanitized script
+                eval(data.sanitizedScript);
+
+            } catch (error) {
+                console.error('Error loading external script:', error);
+            }
+        }
+
+        // Call the function to load the external script securely
+        loadExternalScript();
+    </script>
+
+</body>
+
+</html>

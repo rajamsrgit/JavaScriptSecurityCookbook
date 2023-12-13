@@ -1,0 +1,27 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token-based Authentication</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="button" onclick="login()">Login</button>
+  </form>
+
+  <h2>Protected Content</h2>
+  <div id="protectedContent"></div>
+
+  <script src="client-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Code Execution</title>
+</head>
+
+<body>
+
+    <script>
+        // Safe dynamic code execution using the Function constructor
+        function executeDynamicCode() {
+            // Your dynamic code here
+            const dynamicCode = "console.log('Hello, dynamic code!');";
+
+            try {
+                // Create a new function using the Function constructor
+                const safeFunction = new Function(dynamicCode);
+
+                // Execute the dynamic code
+                safeFunction();
+            } catch (error) {
+                console.error('Error executing dynamic code:', error.message);
+            }
+        }
+
+        // Call the function to execute dynamic code
+        executeDynamicCode();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanitize and validate URL</title>
+    <!-- Include this script at the beginning of your HTML file -->
+    <script src="https://cdn.jsdelivr.net/npm/@sentry/browser"></script>
+    <script>
+        // Sanitize and validate user-provided URLs
+        const userInputURL = 'https://example.com?param=<script>alert("XSS")</script>';
+    const sanitizedURL = encodeURI(userInputURL);
+    </script>
+
+</head>
+
+<body>
+    <h1>Sanitize and validate URL</h1>
+
+
+</body>
+
+</html>

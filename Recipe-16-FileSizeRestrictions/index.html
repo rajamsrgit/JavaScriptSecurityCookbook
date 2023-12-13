@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+
+<body>
+    <input type="file" id="fileInput" onchange="checkFileSize()">
+    <p id="error-message"></p>
+
+    <script>
+
+        // This script checks the file size on the client side before the form is even submitted. Adjust the maxSizeInBytes variable to your desired limit.
+
+        function checkFileSize() {
+            const fileInput = document.getElementById('fileInput');
+            const errorMessage = document.getElementById('error-message');
+            const maxSizeInBytes = 1024 * 1024; // 1MB (adjust as needed)
+
+            if (fileInput.files.length > 0) {
+                const fileSize = fileInput.files[0].size;
+                if (fileSize > maxSizeInBytes) {
+                    errorMessage.textContent = 'File size exceeds the limit (1MB)';
+                    fileInput.value = ''; // Clear the file input
+                } else {
+                    errorMessage.textContent = '';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

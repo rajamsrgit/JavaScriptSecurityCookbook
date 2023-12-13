@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Example</title>
+</head>
+
+<body>
+    <button onclick="setSession()">Set Session</button>
+    <button onclick="getSession()">Get Session</button>
+
+    <script>
+        // Function to set a session variable on the server
+        function setSession() {
+            fetch('/setSession')
+                .then(response => response.text())
+                .then(message => alert(message));
+        }
+
+        // Function to get the session variable from the server
+        function getSession() {
+            fetch('/getSession')
+                .then(response => response.json())
+                .then(user => alert(`Session User: ${JSON.stringify(user)}`));
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Protection</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+    <form id="myForm">
+        <label for="userInput">Enter text:</label>
+        <input type="text" id="userInput" name="userInput">
+        <button type="button" onclick="sanitizeInput()">Sanitize Input</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        // Function to sanitize user input using DOMPurify
+        function sanitizeInput() {
+            var userInput = document.getElementById('userInput').value;
+            var sanitizedInput = DOMPurify.sanitize(userInput);
+            document.getElementById('result').innerHTML = 'Sanitized Input: ' + sanitizedInput;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Hashing Example</title>
+</head>
+<body>
+
+<script>
+  async function hashPassword(password, salt) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password + salt);
+    
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashedPassword = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    
+    return hashedPassword;
+  }
+
+  // Example of usage
+  const password = 'userPassword';
+  const salt = 'randomSaltForUser'; // Generate a unique salt for each user
+
+  hashPassword(password, salt)
+    .then(hashedPassword => {
+      console.log('Hashed Password:', hashedPassword);
+      // Store hashedPassword and salt securely in your database
+    })
+    .catch(error => console.error('Error hashing password:', error));
+</script>
+
+</body>
+</html>

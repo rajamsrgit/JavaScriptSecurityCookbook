@@ -43,3 +43,4 @@
 | Recipe 39 | Secure WebSocket Communication |
 | Recipe 40 | Protect Against Script Injection in URLs |
 | Recipe 41 | Information Disclosure Through URLs |
+| Recipe 42 | Escape HTML Output |

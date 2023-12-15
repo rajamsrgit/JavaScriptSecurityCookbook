@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Prevention</title>
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <script>
+        function escapeHtml(input) {
+            var doc = new DOMParser().parseFromString(input, 'text/html');
+            return doc.body.textContent || "";
+        }
+
+        // Example usage
+        var userInput = '<script>alert("XSS Attack!");</script>';
+    var escapedInput = escapeHtml(userInput);
+
+    document.getElementById('output').innerHTML = escapedInput;
+    </script>
+</body>
+
+</html>

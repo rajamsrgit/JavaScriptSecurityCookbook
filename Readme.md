@@ -1,4 +1,27 @@
 # JavaScript Security Cookbook
+This eBook `JavaScript Security Cookbook` will guide you how to make your web applications more secure from many kinds of attacks. You will learn 40+ useful recipes to protect your websites from hackers and bad actors.  
+
+![Alt](/diagrams/JavaScriptSecurityBookCover.png "JavaScript Security Cookbook")
+
+The book covers how to:
+
+- Protect your website from XSS and CSRF attacks by checking user input and using CSP and anti-CSRF tokens.
+
+- Validate and sanitize your data to prevent SQL injection and JSON injection.
+
+- Implement authentication and authorization using secure passwords, tokens, and roles.
+
+- Use HTTPS, cookies, and security headers to encrypt communication and prevent man-in-the-middle attacks.
+
+- Handle file uploads, client-side storage, and security testing safely and securely.
+
+- Improve your security with secure coding practices, mobile security, and monitoring and logging.
+
+- Learn advanced security topics like multi-factor authentication and WebSockets communication.
+
+This eBook is a must-have for anyone who wants to build secure web applications using JavaScript and Node.js. It will give you the knowledge and skills to defend your websites from cyber threats!
+
+## Table of Contents
 
 | Recipe    | Description |
 |-----------| --------------------------------|

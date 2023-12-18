@@ -1,7 +1,7 @@
 # JavaScript Security Cookbook
 This eBook `JavaScript Security Cookbook` will guide you how to make your web applications more secure from many kinds of attacks. You will learn 40+ useful recipes to protect your websites from hackers and bad actors.  
 
-![Alt](/diagrams/JavaScriptSecurityBookCover.png "JavaScript Security Cookbook")
+![Alt](/diagrams/JavaScriptSecurityBookCover.png?raw=true "JavaScript Security Cookbook")
 
 The book covers how to:
 

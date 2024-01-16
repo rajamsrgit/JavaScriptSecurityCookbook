@@ -67,3 +67,5 @@ This eBook is a must-have for anyone who wants to build secure web applications 
 | Recipe 40 | Protect Against Script Injection in URLs |
 | Recipe 41 | Information Disclosure Through URLs |
 | Recipe 42 | Escape HTML Output |
+
+## Discover more at (Raja MSR)[https://www.rajamsr.com]

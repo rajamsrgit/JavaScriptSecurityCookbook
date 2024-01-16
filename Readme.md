@@ -1,5 +1,5 @@
 # JavaScript Security Cookbook
-This eBook `JavaScript Security Cookbook` will guide you how to make your web applications more secure from many kinds of attacks. You will learn 40+ useful recipes to protect your websites from hackers and bad actors.  
+This eBook `JavaScript Security Cookbook` will guide you on how to make your web applications more secure from many kinds of attacks. You will learn 40+ useful recipes to protect your websites from hackers and bad actors. 
 
 ![Alt](/Diagrams/JavaScriptSecurityBookCover.png?raw=true "JavaScript Security Cookbook")
 
@@ -68,4 +68,4 @@ This eBook is a must-have for anyone who wants to build secure web applications 
 | Recipe 41 | Information Disclosure Through URLs |
 | Recipe 42 | Escape HTML Output |
 
-## Discover more at (Raja MSR)[https://www.rajamsr.com]
+## Discover more at [Raja MSR](https://www.rajamsr.com).

@@ -10,7 +10,7 @@ That's why I built the "JavaScript Security Cookbook" (Available for free for a 
 Download Link 
 [JavaScript Security Cookbook](https://onlinemsr.gumroad.com/l/javascript-security-cookbook)
 
-![Alt](/Diagrams/JavaScriptSecurityBookCover.png?raw=true "JavaScript Security Cookbook")
+![JavaScript Security Cookbook](/Diagrams/JavaScriptSecurityBookCover.png?raw=true "JavaScript Security Cookbook")
 
 The book covers how to:
 

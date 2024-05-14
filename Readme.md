@@ -1,5 +1,5 @@
 # JavaScript Security Cookbook
-This eBook `JavaScript Security Cookbook` will guide you on how to make your web applications more secure from many kinds of attacks. You will learn 40+ useful recipes to protect your websites from hackers and bad actors. 
+This eBook `JavaScript Security Cookbook` will guide you on making your web applications more secure from many attacks. You will learn 40+ useful recipes to protect your websites from hackers and bad actors. 
 
 Security measures are vital when writing code in JavaScript and Node JS. Don't let hackers ruin your awesome work! 😎  
 That's why I built the "JavaScript Security Cookbook" (Available for free for a limited time only).  
@@ -7,7 +7,7 @@ That's why I built the "JavaScript Security Cookbook" (Available for free for a 
 • Infographics  
 • Source code  
 • 63 Pages eBook (PDF)
-Download Link (FREE)
+Download Link 
 [JavaScript Security Cookbook](https://onlinemsr.gumroad.com/l/javascript-security-cookbook)
 
 ![Alt](/Diagrams/JavaScriptSecurityBookCover.png?raw=true "JavaScript Security Cookbook")
